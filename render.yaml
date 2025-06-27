@@ -1,0 +1,8 @@
+﻿services:
+  - type: web
+    name: consultarcedula.
+    env: dotnet
+    plan: free
+    branch: main
+    buildCommand: dotnet build
+    startCommand: dotnet ConsultarCedulaApp.dll
