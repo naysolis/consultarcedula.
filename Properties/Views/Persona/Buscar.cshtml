@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Buscar por Cédula";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Buscar por Cédula</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/estilos.css" />
+</head>
+<body>
+    <div class="card">
+        <div class="emoji">🌸</div>
+        <h2>Buscar por Cédula</h2>
+        <form asp-action="Buscar" method="post">
+            <input type="text" name="cedula" placeholder="Ej. 123456789" required />
+            <button type="submit">Buscar</button>
+        </form>
+
+        @if (ViewBag.Mensaje != null)
+        {
+            if (ViewBag.EsError == true)
+            {
+                <div class="error">❌ @ViewBag.Mensaje</div>
+            }
+            else
+            {
+                <div class="exito">@ViewBag.Mensaje</div>
+            }
+        }
+    </div>
+</body>
+</html>
+
+

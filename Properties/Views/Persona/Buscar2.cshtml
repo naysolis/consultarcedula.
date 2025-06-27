@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Buscar por Cédula";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Buscar por Cédula</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/estilos.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .card {
+            background-color: white;
+            padding: 2rem;
+            max-width: 400px;
+            margin: 4rem auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .emoji {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 0.5rem;
+            width: 80%;
+            margin: 1rem 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: #42a5f5;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: #d32f2f;
+            margin-top: 1rem;
+        }
+
+        .exito {
+            color: #388e3c;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="emoji">🐱</div>
+        <h2>Buscar por Cédula</h2>
+        <form asp-action="Buscar" method="post">
+            <input type="text" name="cedula" placeholder="Ej. 123456789" required />
+            <button type="submit">Buscar</button>
+        </form>
+
+        @if (ViewBag.Mensaje != null)
+        {
+            if (ViewBag.EsError == true)
+            {
+                <div class="error">❌ @ViewBag.Mensaje</div>
+            }
+            else
+            {
+                <div class="exito">✔️ @ViewBag.Mensaje</div>
+            }
+        }
+    </div>
+</body>
+</html>

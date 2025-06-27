@@ -1,0 +1,43 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using ConsultaCedulaApp.Data;
+using System.Linq;
+
+public class PersonaController : Controller
+{
+    private readonly AppDbContext _context;
+
+    public PersonaController(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    public IActionResult Buscar()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Buscar(string cedula)
+    {
+        if (string.IsNullOrEmpty(cedula))
+        {
+            ViewBag.Mensaje = "Por favor ingresa una cédula válida";
+            ViewBag.EsError = true;
+            return View();
+        }
+
+        var persona = _context.Personas.FirstOrDefault(p => p.Cedula == cedula);
+
+        if (persona == null)
+        {
+            ViewBag.Mensaje = "Cédula no encontrada";
+            ViewBag.EsError = true;
+            return View();
+        }
+
+        ViewBag.Mensaje = $"Cédula: {persona.Cedula}, Nombre: {persona.Nombre}, Edad: {persona.Edad}";
+        ViewBag.EsError = false;
+        return View();
+    }
+}
+
