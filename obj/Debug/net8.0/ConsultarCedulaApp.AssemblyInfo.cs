@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConsultarCedulaApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9df4df66122d4368866834e6db7461fbe500107")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac3378c743d2672c444cd49570c26a026fa63b5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConsultarCedulaApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConsultarCedulaApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
